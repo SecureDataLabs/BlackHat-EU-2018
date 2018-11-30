@@ -19,7 +19,7 @@ Clone this GitHub project. Locate the file in the _bheu_data_ folder named _bheu
 
 On a Linux host use the following command:
 
-gunzip -c bheu-dump-scrubbed_event_data_import-20181130_00.sql.gz | pqsl -h localhost -U postgres -W -d postgres
+    gunzip -c bheu-dump-scrubbed_event_data_import-20181130_00.sql.gz | pqsl -h localhost -U postgres -W -d postgres
 
 This assumes the following:
 
