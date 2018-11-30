@@ -1,0 +1,14 @@
+version: '3'
+services:
+  bheu_data:
+    image: "postgres:10.0"
+    restart: always
+    environment:
+      POSTGRES_PASSWORD:
+    ports:
+     - "35432:5432"
+    volumes:
+     - ./bheu_data/:/docker-entrypoint-initdb.d/
+     - bheu_data_postgres:/var/lib/postgresql/data
+volumes:
+  bheu_data_postgres:

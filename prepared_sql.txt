@@ -1,0 +1,829 @@
+
+CREATE TABLE public.event_data_lt5m 
+(
+	id serial NOT NULL,
+	orig_sourceip text NULL,
+	"orig_timestamp" timestamp NULL,
+	orig_eventclass text NULL,
+	orig_entity text NULL,
+	"match_timestamp" timestamp NULL,
+	match_eventclass text NULL,
+	match_entity text NULL,
+	match_destinationip text NULL,
+	match_destinationport int4 NULL,
+	timedelta int4 null,
+	CONSTRAINT pk_id__event_data_lt5m PRIMARY KEY (id)
+)
+;
+
+CREATE TABLE public.event_data_lt5m_honeyserver 
+(
+	id serial NOT NULL,
+	orig_sourceip text NULL,
+	"orig_timestamp" timestamp NULL,
+	orig_eventclass text NULL,
+	orig_entity text NULL,
+	"match_timestamp" timestamp NULL,
+	match_eventclass text NULL,
+	match_entity text NULL,
+	match_destinationip text NULL,
+	match_destinationport int4 NULL,
+	timedelta int4 null,
+	CONSTRAINT pk_id__event_data_lt5m_honeyserver PRIMARY KEY (id)
+)
+;
+
+CREATE TABLE public.event_data_lt5m_no_ro 
+(
+	id serial NOT NULL,
+	orig_sourceip text NULL,
+	"orig_timestamp" timestamp NULL,
+	orig_eventclass text NULL,
+	orig_entity text NULL,
+	"match_timestamp" timestamp NULL,
+	match_eventclass text NULL,
+	match_entity text NULL,
+	match_destinationip text NULL,
+	match_destinationport int4 NULL,
+	timedelta int4 null,
+	CONSTRAINT pk_id__event_data_lt5m_no_ro PRIMARY KEY (id)
+)
+;
+
+CREATE TABLE public.event_data_5mtolt48h 
+(
+	id serial NOT NULL,
+	orig_sourceip text NULL,
+	"orig_timestamp" timestamp NULL,
+	orig_eventclass text NULL,
+	orig_entity text NULL,
+	"match_timestamp" timestamp NULL,
+	match_eventclass text NULL,
+	match_entity text NULL,
+	match_destinationip text NULL,
+	match_destinationport int4 NULL,
+	timedelta int4 null,
+	CONSTRAINT pk_id__event_data_5mtolt48h PRIMARY KEY (id)
+)
+;
+
+CREATE TABLE public.event_data_5mtolt48h_honeyserver 
+(
+	id serial NOT NULL,
+	orig_sourceip text NULL,
+	"orig_timestamp" timestamp NULL,
+	orig_eventclass text NULL,
+	orig_entity text NULL,
+	"match_timestamp" timestamp NULL,
+	match_eventclass text NULL,
+	match_entity text NULL,
+	match_destinationip text NULL,
+	match_destinationport int4 NULL,
+	timedelta int4 null,
+	CONSTRAINT pk_id__event_data_5mtolt48h_honeyserver PRIMARY KEY (id)
+)
+;
+
+CREATE TABLE public.event_data_5mtolt48h_no_ro 
+(
+	id serial NOT NULL,
+	orig_sourceip text NULL,
+	"orig_timestamp" timestamp NULL,
+	orig_eventclass text NULL,
+	orig_entity text NULL,
+	"match_timestamp" timestamp NULL,
+	match_eventclass text NULL,
+	match_entity text NULL,
+	match_destinationip text NULL,
+	match_destinationport int4 NULL,
+	timedelta int4 null,
+	CONSTRAINT pk_id__event_data_5mtolt48h_no_ro PRIMARY KEY (id)
+)
+;
+
+CREATE TABLE public.event_data_first48h 
+(
+	id serial NOT NULL,
+	orig_sourceip text NULL,
+	"orig_timestamp" timestamp NULL,
+	orig_eventclass text NULL,
+	orig_entity text NULL,
+	"match_timestamp" timestamp NULL,
+	match_eventclass text NULL,
+	match_entity text NULL,
+	match_destinationip text NULL,
+	match_destinationport int4 NULL,
+	timedelta int4 null,
+	CONSTRAINT pk_id__event_data_first48h PRIMARY KEY (id)
+)
+;
+
+CREATE TABLE public.event_data_first48h_honeyserver 
+(
+	id serial NOT NULL,
+	orig_sourceip text NULL,
+	"orig_timestamp" timestamp NULL,
+	orig_eventclass text NULL,
+	orig_entity text NULL,
+	"match_timestamp" timestamp NULL,
+	match_eventclass text NULL,
+	match_entity text NULL,
+	match_destinationip text NULL,
+	match_destinationport int4 NULL,
+	timedelta int4 null,
+	CONSTRAINT pk_id__event_data_first48h_honeyserver PRIMARY KEY (id)
+)
+;
+
+CREATE TABLE public.event_data_first48h_no_ro 
+(
+	id serial NOT NULL,
+	orig_sourceip text NULL,
+	"orig_timestamp" timestamp NULL,
+	orig_eventclass text NULL,
+	orig_entity text NULL,
+	"match_timestamp" timestamp NULL,
+	match_eventclass text NULL,
+	match_entity text NULL,
+	match_destinationip text NULL,
+	match_destinationport int4 NULL,
+	timedelta int4 null,
+	CONSTRAINT pk_id__event_data_first48h_no_ro PRIMARY KEY (id)
+)
+;
+
+CREATE TABLE public.event_data_48htolt7d 
+(
+	id serial NOT NULL,
+	orig_sourceip text NULL,
+	"orig_timestamp" timestamp NULL,
+	orig_eventclass text NULL,
+	orig_entity text NULL,
+	"match_timestamp" timestamp NULL,
+	match_eventclass text NULL,
+	match_entity text NULL,
+	match_destinationip text NULL,
+	match_destinationport int4 NULL,
+	timedelta int4 null,
+	CONSTRAINT pk_id__event_data_48htolt7d PRIMARY KEY (id)
+)
+;
+
+CREATE TABLE public.event_data_48htolt7d_honeyserver 
+(
+	id serial NOT NULL,
+	orig_sourceip text NULL,
+	"orig_timestamp" timestamp NULL,
+	orig_eventclass text NULL,
+	orig_entity text NULL,
+	"match_timestamp" timestamp NULL,
+	match_eventclass text NULL,
+	match_entity text NULL,
+	match_destinationip text NULL,
+	match_destinationport int4 NULL,
+	timedelta int4 null,
+	CONSTRAINT pk_id__event_data_48htolt7d_honeyserver PRIMARY KEY (id)
+)
+;
+
+CREATE TABLE public.event_data_48htolt7d_no_ro 
+(
+	id serial NOT NULL,
+	orig_sourceip text NULL,
+	"orig_timestamp" timestamp NULL,
+	orig_eventclass text NULL,
+	orig_entity text NULL,
+	"match_timestamp" timestamp NULL,
+	match_eventclass text NULL,
+	match_entity text NULL,
+	match_destinationip text NULL,
+	match_destinationport int4 NULL,
+	timedelta int4 null,
+	CONSTRAINT pk_id__event_data_48htolt7d_no_ro PRIMARY KEY (id)
+)
+;
+
+CREATE TABLE public.event_data_7dormore 
+(
+	id serial NOT NULL,
+	orig_sourceip text NULL,
+	"orig_timestamp" timestamp NULL,
+	orig_eventclass text NULL,
+	orig_entity text NULL,
+	"match_timestamp" timestamp NULL,
+	match_eventclass text NULL,
+	match_entity text NULL,
+	match_destinationip text NULL,
+	match_destinationport int4 NULL,
+	timedelta int4 null,
+	CONSTRAINT pk_id__event_data_7dormore PRIMARY KEY (id)
+)
+;
+
+CREATE TABLE public.event_data_7dormore_honeyserver 
+(
+	id serial NOT NULL,
+	orig_sourceip text NULL,
+	"orig_timestamp" timestamp NULL,
+	orig_eventclass text NULL,
+	orig_entity text NULL,
+	"match_timestamp" timestamp NULL,
+	match_eventclass text NULL,
+	match_entity text NULL,
+	match_destinationip text NULL,
+	match_destinationport int4 NULL,
+	timedelta int4 null,
+	CONSTRAINT pk_id__event_data_7dormore_honeyserver PRIMARY KEY (id)
+)
+;
+
+CREATE TABLE public.event_data_7dormore_no_ro 
+(
+	id serial NOT NULL,
+	orig_sourceip text NULL,
+	"orig_timestamp" timestamp NULL,
+	orig_eventclass text NULL,
+	orig_entity text NULL,
+	"match_timestamp" timestamp NULL,
+	match_eventclass text NULL,
+	match_entity text NULL,
+	match_destinationip text NULL,
+	match_destinationport int4 NULL,
+	timedelta int4 null,
+	CONSTRAINT pk_id__event_data_7dormore_no_ro PRIMARY KEY (id)
+)
+;
+
+-- Start populating the tables
+insert into event_data_lt5m
+(orig_sourceip,
+orig_timestamp, 
+orig_eventclass,
+orig_entity, 
+match_timestamp, 
+match_eventclass, 
+match_entity, 
+match_destinationip, 
+match_destinationport, 
+timedelta)
+(select
+    edm.sourceip,
+	edm.timestamp, 
+	edm.eventclass,
+	edm.entity,
+	eds.timestamp,
+	eds.eventclass,
+	eds.entity,
+	eds.destinationip,
+	eds.destinationport, 
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) as timedelta
+from event_data_import as edm
+left join event_data_import as eds 
+on (edm.sourceip = eds.sourceip and eds.timestamp > edm.timestamp and eds.entity <> 'honeyserver')
+where
+	edm.timestamp  >= '2018-08-01' and 
+	edm.timestamp < '2018-11-01' and 
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) >= 0 and
+    EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) < 300
+order by edm.timestamp)
+;
+
+insert into event_data_lt5m_honeyserver
+(orig_sourceip,
+orig_timestamp, 
+orig_eventclass,
+orig_entity, 
+match_timestamp, 
+match_eventclass, 
+match_entity, 
+match_destinationip, 
+match_destinationport, 
+timedelta)
+(select
+    edm.sourceip,
+	edm.timestamp, 
+	edm.eventclass,
+	edm.entity,
+	eds.timestamp,
+	eds.eventclass,
+	eds.entity,
+	eds.destinationip,
+	eds.destinationport, 
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) as timedelta
+from event_data_import as edm
+left join event_data_import as eds 
+on (edm.sourceip = eds.sourceip and eds.timestamp > edm.timestamp and eds.eventclass <> 'Suspicious and persistant')
+where
+	edm.entity = 'honeyserver' and
+	edm.eventclass <> 'Suspicious and persistant' and
+	edm.timestamp  >= '2018-08-01' and 
+	edm.timestamp < '2018-11-01' and
+    EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) >= 0 and
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) < 300
+order by edm.timestamp)
+;
+
+insert into event_data_lt5m_no_ro
+(orig_sourceip,
+orig_timestamp, 
+orig_eventclass,
+orig_entity, 
+match_timestamp, 
+match_eventclass, 
+match_entity, 
+match_destinationip, 
+match_destinationport, 
+timedelta)
+(select
+    edm.sourceip,
+	edm.timestamp, 
+	edm.eventclass,
+	edm.entity,
+	eds.timestamp,
+	eds.eventclass,
+	eds.entity,
+	eds.destinationip,
+	eds.destinationport, 
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) as timedelta
+from event_data_import as edm
+left join event_data_import as eds 
+on (edm.sourceip = eds.sourceip and eds.timestamp > edm.timestamp and eds.eventclass <> 'Suspicious and persistant')
+where
+	edm.entity <> 'honeyserver' and
+	edm.eventclass <> 'Suspicious and persistant' and
+	edm.timestamp  >= '2018-08-01' and 
+	edm.timestamp < '2018-11-01' and
+    EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) >= 0 and
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) < 300
+order by edm.timestamp)
+;
+
+insert into event_data_5mtolt48h
+(orig_sourceip,
+orig_timestamp, 
+orig_eventclass,
+orig_entity, 
+match_timestamp, 
+match_eventclass, 
+match_entity, 
+match_destinationip, 
+match_destinationport, 
+timedelta)
+(select
+    edm.sourceip,
+	edm.timestamp, 
+	edm.eventclass,
+	edm.entity,
+	eds.timestamp,
+	eds.eventclass,
+	eds.entity,
+	eds.destinationip,
+	eds.destinationport, 
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) as timedelta
+from event_data_import as edm
+left join event_data_import as eds 
+on (edm.sourceip = eds.sourceip and eds.timestamp > edm.timestamp and eds.entity <> 'honeyserver')
+where
+	edm.timestamp  >= '2018-08-01' and 
+	edm.timestamp < '2018-11-01' and 
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) >= 300 and 
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) < 172800
+order by edm.timestamp)
+;
+
+insert into event_data_5mtolt48h_honeyserver
+(orig_sourceip,
+orig_timestamp, 
+orig_eventclass,
+orig_entity, 
+match_timestamp, 
+match_eventclass, 
+match_entity, 
+match_destinationip, 
+match_destinationport, 
+timedelta)
+(select
+    edm.sourceip,
+	edm.timestamp, 
+	edm.eventclass,
+	edm.entity,
+	eds.timestamp,
+	eds.eventclass,
+	eds.entity,
+	eds.destinationip,
+	eds.destinationport, 
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) as timedelta
+from event_data_import as edm
+left join event_data_import as eds 
+on (edm.sourceip = eds.sourceip and eds.timestamp > edm.timestamp and eds.eventclass <> 'Suspicious and persistant')
+where
+	edm.entity = 'honeyserver' and
+	edm.eventclass <> 'Suspicious and persistant' and
+	edm.timestamp  >= '2018-08-01' and 
+	edm.timestamp < '2018-11-01' and
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) >= 300 and
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) < 172800
+order by edm.timestamp)
+;
+
+insert into event_data_5mtolt48h_no_ro
+(orig_sourceip,
+orig_timestamp, 
+orig_eventclass,
+orig_entity, 
+match_timestamp, 
+match_eventclass, 
+match_entity, 
+match_destinationip, 
+match_destinationport, 
+timedelta)
+(select
+    edm.sourceip,
+	edm.timestamp, 
+	edm.eventclass,
+	edm.entity,
+	eds.timestamp,
+	eds.eventclass,
+	eds.entity,
+	eds.destinationip,
+	eds.destinationport, 
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) as timedelta
+from event_data_import as edm
+left join event_data_import as eds 
+on (edm.sourceip = eds.sourceip and eds.timestamp > edm.timestamp and eds.eventclass <> 'Suspicious and persistant')
+where
+	edm.entity <> 'honeyserver' and
+	edm.eventclass <> 'Suspicious and persistant' and
+	edm.timestamp  >= '2018-08-01' and 
+	edm.timestamp < '2018-11-01' and 
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) >= 300 and
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) < 172800
+order by edm.timestamp)
+;
+
+insert into event_data_first48h
+(orig_sourceip,
+orig_timestamp, 
+orig_eventclass,
+orig_entity, 
+match_timestamp, 
+match_eventclass, 
+match_entity, 
+match_destinationip, 
+match_destinationport, 
+timedelta)
+(select
+    edm.sourceip,
+	edm.timestamp, 
+	edm.eventclass,
+	edm.entity,
+	eds.timestamp,
+	eds.eventclass,
+	eds.entity,
+	eds.destinationip,
+	eds.destinationport, 
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) as timedelta
+from event_data_import as edm
+left join event_data_import as eds 
+on (edm.sourceip = eds.sourceip and eds.timestamp > edm.timestamp and eds.entity <> 'honeyserver')
+where
+	edm.timestamp  >= '2018-08-01' and 
+	edm.timestamp < '2018-11-01' and
+    EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) >= 0 and
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) < 172800
+order by edm.timestamp)
+;
+
+insert into event_data_first48h_honeyserver
+(orig_sourceip,
+orig_timestamp, 
+orig_eventclass,
+orig_entity, 
+match_timestamp, 
+match_eventclass, 
+match_entity, 
+match_destinationip, 
+match_destinationport, 
+timedelta)
+(select
+    edm.sourceip,
+	edm.timestamp, 
+	edm.eventclass,
+	edm.entity,
+	eds.timestamp,
+	eds.eventclass,
+	eds.entity,
+	eds.destinationip,
+	eds.destinationport, 
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) as timedelta
+from event_data_import as edm
+left join event_data_import as eds 
+on (edm.sourceip = eds.sourceip and eds.timestamp > edm.timestamp and eds.eventclass <> 'Suspicious and persistant')
+where
+	edm.entity = 'honeyserver' and
+	edm.eventclass <> 'Suspicious and persistant' and
+	edm.timestamp  >= '2018-08-01' and 
+	edm.timestamp < '2018-11-01' and 
+    EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) >= 0 and
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) < 172800
+order by edm.timestamp)
+;
+
+insert into event_data_first48h_no_ro
+(orig_sourceip,
+orig_timestamp, 
+orig_eventclass,
+orig_entity, 
+match_timestamp, 
+match_eventclass, 
+match_entity, 
+match_destinationip, 
+match_destinationport, 
+timedelta)
+(select
+    edm.sourceip,
+	edm.timestamp, 
+	edm.eventclass,
+	edm.entity,
+	eds.timestamp,
+	eds.eventclass,
+	eds.entity,
+	eds.destinationip,
+	eds.destinationport, 
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) as timedelta
+from event_data_import as edm
+left join event_data_import as eds 
+on (edm.sourceip = eds.sourceip and eds.timestamp > edm.timestamp and eds.eventclass <> 'Suspicious and persistant')
+where
+	edm.entity <> 'honeyserver' and
+	edm.eventclass <> 'Suspicious and persistant' and
+	edm.timestamp  >= '2018-08-01' and 
+	edm.timestamp < '2018-11-01' and
+    EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) >= 0 and
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) < 172800
+order by edm.timestamp)
+;
+
+insert into event_data_48htolt7d
+(orig_sourceip,
+orig_timestamp, 
+orig_eventclass,
+orig_entity, 
+match_timestamp, 
+match_eventclass, 
+match_entity, 
+match_destinationip, 
+match_destinationport, 
+timedelta)
+(select
+    edm.sourceip,
+	edm.timestamp, 
+	edm.eventclass,
+	edm.entity,
+	eds.timestamp,
+	eds.eventclass,
+	eds.entity,
+	eds.destinationip,
+	eds.destinationport, 
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) as timedelta
+from event_data_import as edm
+left join event_data_import as eds 
+on (edm.sourceip = eds.sourceip and eds.timestamp > edm.timestamp and eds.entity <> 'honeyserver')
+where
+	edm.timestamp  >= '2018-08-01' and 
+	edm.timestamp < '2018-11-01' and 
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) >= 172800 and 
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) < 604800
+order by edm.timestamp)
+;
+
+insert into event_data_48htolt7d_honeyserver
+(orig_sourceip,
+orig_timestamp, 
+orig_eventclass,
+orig_entity, 
+match_timestamp, 
+match_eventclass, 
+match_entity, 
+match_destinationip, 
+match_destinationport, 
+timedelta)
+(select
+    edm.sourceip,
+	edm.timestamp, 
+	edm.eventclass,
+	edm.entity,
+	eds.timestamp,
+	eds.eventclass,
+	eds.entity,
+	eds.destinationip,
+	eds.destinationport, 
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) as timedelta
+from event_data_import as edm
+left join event_data_import as eds 
+on (edm.sourceip = eds.sourceip and eds.timestamp > edm.timestamp and eds.eventclass <> 'Suspicious and persistant')
+where
+	edm.entity = 'honeyserver' and
+	edm.eventclass <> 'Suspicious and persistant' and
+	edm.timestamp  >= '2018-08-01' and 
+	edm.timestamp < '2018-11-01' and
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) >= 172800 and
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) < 604800
+order by edm.timestamp)
+;
+
+insert into event_data_48htolt7d_no_ro
+(orig_sourceip,
+orig_timestamp, 
+orig_eventclass,
+orig_entity, 
+match_timestamp, 
+match_eventclass, 
+match_entity, 
+match_destinationip, 
+match_destinationport, 
+timedelta)
+(select
+    edm.sourceip,
+	edm.timestamp, 
+	edm.eventclass,
+	edm.entity,
+	eds.timestamp,
+	eds.eventclass,
+	eds.entity,
+	eds.destinationip,
+	eds.destinationport, 
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) as timedelta
+from event_data_import as edm
+left join event_data_import as eds 
+on (edm.sourceip = eds.sourceip and eds.timestamp > edm.timestamp and eds.eventclass <> 'Suspicious and persistant')
+where
+	edm.entity <> 'honeyserver' and
+	edm.eventclass <> 'Suspicious and persistant' and
+	edm.timestamp  >= '2018-08-01' and 
+	edm.timestamp < '2018-11-01' and 
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) >= 172800 and
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) < 604800
+order by edm.timestamp)
+;
+
+insert into event_data_7dormore 
+(orig_sourceip,
+orig_timestamp, 
+orig_eventclass,
+orig_entity, 
+match_timestamp, 
+match_eventclass, 
+match_entity, 
+match_destinationip, 
+match_destinationport, 
+timedelta)
+(select
+    edm.sourceip,
+	edm.timestamp, 
+	edm.eventclass,
+	edm.entity,
+	eds.timestamp,
+	eds.eventclass,
+	eds.entity,
+	eds.destinationip,
+	eds.destinationport, 
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) as timedelta
+from event_data_import as edm
+left join event_data_import as eds 
+on (edm.sourceip = eds.sourceip and eds.timestamp > edm.timestamp and eds.entity <> 'honeyserver')
+where
+	edm.timestamp  >= '2018-08-01' and 
+	edm.timestamp < '2018-11-01' and 
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) >= 604800
+order by edm.timestamp);
+
+insert into event_data_7dormore_honeyserver
+(orig_sourceip,
+orig_timestamp, 
+orig_eventclass,
+orig_entity, 
+match_timestamp, 
+match_eventclass, 
+match_entity, 
+match_destinationip, 
+match_destinationport, 
+timedelta)
+(select
+    edm.sourceip,
+	edm.timestamp, 
+	edm.eventclass,
+	edm.entity,
+	eds.timestamp,
+	eds.eventclass,
+	eds.entity,
+	eds.destinationip,
+	eds.destinationport, 
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) as timedelta
+from event_data_import as edm
+left join event_data_import as eds 
+on (edm.sourceip = eds.sourceip and eds.timestamp > edm.timestamp and eds.eventclass <> 'Suspicious and persistant')
+where
+	edm.entity = 'honeyserver' and
+	edm.eventclass <> 'Suspicious and persistant' and
+	edm.timestamp  >= '2018-08-01' and 
+	edm.timestamp < '2018-11-01' and
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) >= 604800
+order by edm.timestamp)
+;
+
+insert into event_data_7dormore_no_ro
+(orig_sourceip,
+orig_timestamp, 
+orig_eventclass,
+orig_entity, 
+match_timestamp, 
+match_eventclass, 
+match_entity, 
+match_destinationip, 
+match_destinationport, 
+timedelta)
+(select
+    edm.sourceip,
+	edm.timestamp, 
+	edm.eventclass,
+	edm.entity,
+	eds.timestamp,
+	eds.eventclass,
+	eds.entity,
+	eds.destinationip,
+	eds.destinationport, 
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) as timedelta
+from event_data_import as edm
+left join event_data_import as eds 
+on (edm.sourceip = eds.sourceip and eds.timestamp > edm.timestamp and eds.eventclass <> 'Suspicious and persistant')
+where
+	edm.entity <> 'honeyserver' and
+	edm.eventclass <> 'Suspicious and persistant' and
+	edm.timestamp  >= '2018-08-01' and 
+	edm.timestamp < '2018-11-01' and
+	EXTRACT(EPOCH FROM (eds.timestamp - edm.timestamp)) >= 604800
+order by edm.timestamp)
+;
+
+-- Create the Indexes
+CREATE INDEX event_data_import_lt5m_orig_timestamp_idx ON public.event_data_lt5m (orig_timestamp);
+CREATE INDEX event_data_import_lt5m_orig_entity_idx ON public.event_data_lt5m (orig_entity);
+CREATE INDEX event_data_import_lt5m_orig_sourceip_idx ON public.event_data_lt5m (orig_sourceip);
+CREATE INDEX event_data_import_lt5m_timedelta_idx ON public.event_data_lt5m (timedelta);
+CREATE INDEX event_data_import_lt5m_honeyserver_orig_timestamp_idx ON public.event_data_lt5m_honeyserver (orig_timestamp);
+CREATE INDEX event_data_import_lt5m_honeyserver_orig_entity_idx ON public.event_data_lt5m_honeyserver (orig_entity);
+CREATE INDEX event_data_import_lt5m_honeyserver_orig_sourceip_idx ON public.event_data_lt5m_honeyserver (orig_sourceip);
+CREATE INDEX event_data_import_lt5m_honeyserver_timedelta_idx ON public.event_data_lt5m_honeyserver (timedelta);
+CREATE INDEX event_data_import_lt5m_no_ro_orig_timestamp_idx ON public.event_data_lt5m_no_ro (orig_timestamp);
+CREATE INDEX event_data_import_lt5m_no_ro_orig_entity_idx ON public.event_data_lt5m_no_ro (orig_entity);
+CREATE INDEX event_data_import_lt5m_no_ro_orig_sourceip_idx ON public.event_data_lt5m_no_ro (orig_sourceip);
+CREATE INDEX event_data_import_lt5m_no_ro_timedelta_idx ON public.event_data_lt5m_no_ro (timedelta);
+CREATE INDEX event_data_import_5mtolt48h_orig_timestamp_idx ON public.event_data_5mtolt48h (orig_timestamp);
+CREATE INDEX event_data_import_5mtolt48h_orig_entity_idx ON public.event_data_5mtolt48h (orig_entity);
+CREATE INDEX event_data_import_5mtolt48h_orig_sourceip_idx ON public.event_data_5mtolt48h (orig_sourceip);
+CREATE INDEX event_data_import_5mtolt48h_timedelta_idx ON public.event_data_5mtolt48h (timedelta);
+CREATE INDEX event_data_import_5mtolt48h_honeyserver_orig_timestamp_idx ON public.event_data_5mtolt48h_honeyserver (orig_timestamp);
+CREATE INDEX event_data_import_5mtolt48h_honeyserver_orig_entity_idx ON public.event_data_5mtolt48h_honeyserver (orig_entity);
+CREATE INDEX event_data_import_5mtolt48h_honeyserver_orig_sourceip_idx ON public.event_data_5mtolt48h_honeyserver (orig_sourceip);
+CREATE INDEX event_data_import_5mtolt48h_honeyserver_timedelta_idx ON public.event_data_5mtolt48h_honeyserver (timedelta);
+CREATE INDEX event_data_import_5mtolt48h_no_ro_orig_timestamp_idx ON public.event_data_5mtolt48h_no_ro (orig_timestamp);
+CREATE INDEX event_data_import_5mtolt48h_no_ro_orig_entity_idx ON public.event_data_5mtolt48h_no_ro (orig_entity);
+CREATE INDEX event_data_import_5mtolt48h_no_ro_orig_sourceip_idx ON public.event_data_5mtolt48h_no_ro (orig_sourceip);
+CREATE INDEX event_data_import_5mtolt48h_no_ro_timedelta_idx ON public.event_data_5mtolt48h_no_ro (timedelta);
+CREATE INDEX event_data_import_first48h_orig_timestamp_idx ON public.event_data_first48h (orig_timestamp);
+CREATE INDEX event_data_import_first48h_orig_entity_idx ON public.event_data_first48h (orig_entity);
+CREATE INDEX event_data_import_first48h_orig_sourceip_idx ON public.event_data_first48h (orig_sourceip);
+CREATE INDEX event_data_import_first48h_timedelta_idx ON public.event_data_first48h (timedelta);
+CREATE INDEX event_data_import_first48h_honeyserver_orig_timestamp_idx ON public.event_data_first48h_honeyserver (orig_timestamp);
+CREATE INDEX event_data_import_first48h_honeyserver_orig_entity_idx ON public.event_data_first48h_honeyserver (orig_entity);
+CREATE INDEX event_data_import_first48h_honeyserver_orig_sourceip_idx ON public.event_data_first48h_honeyserver (orig_sourceip);
+CREATE INDEX event_data_import_first48h_honeyserver_timedelta_idx ON public.event_data_first48h_honeyserver (timedelta);
+CREATE INDEX event_data_import_first48h_no_ro_orig_timestamp_idx ON public.event_data_first48h_no_ro (orig_timestamp);
+CREATE INDEX event_data_import_first48h_no_ro_orig_entity_idx ON public.event_data_first48h_no_ro (orig_entity);
+CREATE INDEX event_data_import_first48h_no_ro_orig_sourceip_idx ON public.event_data_first48h_no_ro (orig_sourceip);
+CREATE INDEX event_data_import_first48h_no_ro_timedelta_idx ON public.event_data_first48h_no_ro (timedelta);
+CREATE INDEX event_data_import_48htolt7d_orig_timestamp_idx ON public.event_data_48htolt7d (orig_timestamp);
+CREATE INDEX event_data_import_48htolt7d_orig_entity_idx ON public.event_data_48htolt7d (orig_entity);
+CREATE INDEX event_data_import_48htolt7d_orig_sourceip_idx ON public.event_data_48htolt7d (orig_sourceip);
+CREATE INDEX event_data_import_48htolt7d_timedelta_idx ON public.event_data_48htolt7d (timedelta);
+CREATE INDEX event_data_import_48htolt7d_honeyserver_orig_timestamp_idx ON public.event_data_48htolt7d_honeyserver (orig_timestamp);
+CREATE INDEX event_data_import_48htolt7d_honeyserver_orig_entity_idx ON public.event_data_48htolt7d_honeyserver (orig_entity);
+CREATE INDEX event_data_import_48htolt7d_honeyserver_orig_sourceip_idx ON public.event_data_48htolt7d_honeyserver (orig_sourceip);
+CREATE INDEX event_data_import_48htolt7d_honeyserver_timedelta_idx ON public.event_data_48htolt7d_honeyserver (timedelta);
+CREATE INDEX event_data_import_48htolt7d_no_ro_orig_timestamp_idx ON public.event_data_48htolt7d_no_ro (orig_timestamp);
+CREATE INDEX event_data_import_48htolt7d_no_ro_orig_entity_idx ON public.event_data_48htolt7d_no_ro (orig_entity);
+CREATE INDEX event_data_import_48htolt7d_no_ro_orig_sourceip_idx ON public.event_data_48htolt7d_no_ro (orig_sourceip);
+CREATE INDEX event_data_import_48htolt7d_no_ro_timedelta_idx ON public.event_data_48htolt7d_no_ro (timedelta);
+CREATE INDEX event_data_import_7dormore_orig_timestamp_idx ON public.event_data_7dormore (orig_timestamp);
+CREATE INDEX event_data_import_7dormore_orig_entity_idx ON public.event_data_7dormore (orig_entity);
+CREATE INDEX event_data_import_7dormore_orig_sourceip_idx ON public.event_data_7dormore (orig_sourceip);
+CREATE INDEX event_data_import_7dormore_timedelta_idx ON public.event_data_7dormore (timedelta);
+CREATE INDEX event_data_import_7dormore_honeyserver_orig_timestamp_idx ON public.event_data_7dormore_honeyserver (orig_timestamp);
+CREATE INDEX event_data_import_7dormore_honeyserver_orig_entity_idx ON public.event_data_7dormore_honeyserver (orig_entity);
+CREATE INDEX event_data_import_7dormore_honeyserver_orig_sourceip_idx ON public.event_data_7dormore_honeyserver (orig_sourceip);
+CREATE INDEX event_data_import_7dormore_honeyserver_timedelta_idx ON public.event_data_7dormore_honeyserver (timedelta);
+CREATE INDEX event_data_import_7dormore_no_ro_orig_timestamp_idx ON public.event_data_7dormore_no_ro (orig_timestamp);
+CREATE INDEX event_data_import_7dormore_no_ro_orig_entity_idx ON public.event_data_7dormore_no_ro (orig_entity);
+CREATE INDEX event_data_import_7dormore_no_ro_orig_sourceip_idx ON public.event_data_7dormore_no_ro (orig_sourceip);
+CREATE INDEX event_data_import_7dormore_no_ro_timedelta_idx ON public.event_data_7dormore_no_ro (timedelta);
