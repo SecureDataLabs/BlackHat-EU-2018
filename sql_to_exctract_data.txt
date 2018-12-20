@@ -1,0 +1,147 @@
+For the research multiple queries were used, some of the unique representations are as follows:
+	•	Entities are ammonised as Sector[space]Entity[space]Sub-Entity. The split is used to reduce this to the Sector only
+	•	The Eventclass 'Suspicious and persistant' is excluded because it reflects our ‘Repeat Offender’ SIEM alarm, which was excluded for this study.
+	•	The Eventclass 'Suspicious and persistant' is excluded wherever necessary because it reflects our ‘Repeat Offender’ SIEM alarm, which was excluded for this study.
+	•	The various time windows used in the queries are to specify the research time window.
+
+
+1) Observations Per Class per Day: Returns the number of Observations for each event class for each day of the study period
+
+	select date(timestamp), eventclass, count(*) 
+	from event_data_import where timestamp  >= '2018-08-01' and timestamp < '2018-11-01' 
+	group by date (timestamp), eventclass;
+	
+	
+2) Sector Summary: Returns the number of Observations for each Industry Sector for the study period
+
+	select split_part (entity,' ',1), count (*) 
+	from event_data_import where timestamp >= '2018-08-01' and timestamp < '2018-11-01' and eventclass <> 'Suspicious and persistant' 
+	group by split_part (entity,' ',1); 
+	
+	
+3) Observations by Sector per Day: Returns the number of Observations for each Industry Sector Per Day for the study period
+
+	select date(timestamp), split_part(entity,' ',1), count (*) 
+	from event_data_import where timestamp  >= '2018-08-01' and timestamp < '2018-11-01' and eventclass <> 'Suspicious and persistant' group by date(timestamp), split_part(entity,' ',1) 
+	order by date (timestamp); 
+
+	
+4) Eventclass Summary: Outputs a list of the summary event classes derived by grouping the 9 SIEM alarms used for this study.
+
+	select eventclass, count (*) 
+	from event_data_import where timestamp  >= '2018-08-01' and timestamp < '2018-11-01' and eventclass <> 'Suspicious and persistant' 
+	group by eventclass
+
+	
+5) Observations by Eventclass perDay: Returns the number of Observations for each Eventclass Per Day for the study period
+
+	select date(timestamp),eventclass, count (*) 
+	from event_data_import where timestamp  >= '2018-08-01' and timestamp < '2018-11-01' and eventclass <> 'Suspicious and persistant' 
+	group by date(timestamp),eventclass
+
+	
+6) Research data Total oIP – Sensors: Count how many unique IP were detected by the Sensor Network
+
+	select count (distinct sourceip) 
+	from event_data_import where timestamp >= '2018-08-01' and timestamp <= '2018-11-01' and eventclass <> 'Suspicious and persistant' and entity <> 'honeyserver'
+
+	
+7) Research data Total oIP –  Honeynet: Count how many unique IP were detected by the Sensor Network
+
+	select count (distinct sourceip) 
+	from event_data_import where timestamp >= '2018-08-01' and timestamp <= '2018-11-01' and eventclass <> 'Suspicious and persistant' and entity = 'honeyserver'
+
+	
+8) Distribution across Honeypots: Reports the distribution of unique source IP addresses across the three servers in our Honeynet
+
+	select distinct destinationip, count(distinct sourceip) 
+	from event_data_import where  timestamp  >= '2018-08-01' and timestamp < '2018-11-01' and entity = 'honeyserver' 
+	group by destinationip;
+
+	
+9) Total Unique Source IP: Returns the total number of unique source IP from all sources – Sensors & Honeynet for the experiment timeframe
+
+	select count(distinct sourceip) 
+	from event_data_import where eventclass <> 'Suspicious and persistant' and timestamp  >= '2018-08-01' and timestamp < '2018-11-01'
+
+	
+10) Prediction window distribution – Sensor Network: This query allows us to understand the life expectancy of a prediction but showing the number of prediction made for each prediction window, from 0 to 90 days.
+
+	select all_predictions.window, count (distinct predictions) from (
+		select  round (timedelta/86400,0) as window, orig_sourceip as predictions from event_data_first48h_no_ro
+	union
+		SELECT round(timedelta/86400,0) as window, orig_sourceip as predictions from event_data_48htolt7d_no_ro 
+	union
+		SELECT round(timedelta/86400,0) as window, orig_sourceip as predictions from event_data_7dormore_no_ro 
+	) as all_predictions
+	group by all_predictions.window;
+
+	
+11) Prediction window distribution - Honeynet: This query allows us to understand the life expectancy of a prediction but showing the number of prediction made for each prediction window, from 0 to 90 days.
+
+	select all_predictions.window, count (distinct predictions) from (
+		select  round (timedelta/86400,0) as window, orig_sourceip as predictions from event_data_first48h_honeyserver
+	union
+		SELECT round(timedelta/86400,0) as window, orig_sourceip as predictions from event_data_48htolt7d_honeyserver
+	union
+		SELECT round(timedelta/86400,0) as window, orig_sourceip as predictions from event_data_7dormore_honeyserver
+	) as all_predictions
+	group by all_predictions.window;
+
+	
+12) Evenclass Correlation Crosstab: Shows the cross-correlation between the original and predicted eventclass. This is used to determine whether the IP addresses we observe acting suspiciously, if seen again later, are seen doing anything different.
+
+	select * from crosstab (	
+	'select distinct orig_sourceip, orig_eventclass, count(*) as avg_delta_time    	
+	  from event_data_first48h_no_ro	
+	  where orig_eventclass <> ''Suspicious and persistant''	
+	  group by	
+		orig_eventclass,
+		orig_sourceip	
+	  order by 	
+		orig_sourceip,
+		orig_eventclass',
+	  'select distinct orig_eventclass from event_data_first48h_no_ro where orig_eventclass <> ''Suspicious and persistant'' order by 1'	
+	  )	
+	  AS (	
+	   IP TEXT,	
+	   External_Threat_Intelligence numeric,	
+	   Malicious_Internet_Activity numeric,	
+	   Malicious_Web_Activity numeric,	
+	   Suspicious_Internet_Activity numeric,	
+	   Suspicious_Web_Activity numeric	
+	 ) ;	
+
+	 
+13) Unique IP from Sensor Predictions: Returns the total number of unique IP occurring in our predictions tables
+
+	select count (distinct orig_sourceip) from 
+	(
+		select distinct orig_sourceip from event_data_first_48hr_noro where match_eventclass <> 'Suspicious and persistant'  
+		union 
+		select distinct orig_sourceip from event_data_48htolt7d_no_ro where match_eventclass <> 'Suspicious and persistant'  
+		union 
+		select distinct orig_sourceip from event_data_7dormore_no_ro where match_eventclass <> 'Suspicious and persistant'  
+	) as all_sensor
+
+	
+14) Unique IP from Honeynet Predictions: Returns the total number of unique IP occurring in our prediction’s tables
+
+	select count (distinct orig_sourceip) from 
+	(
+		select distinct orig_sourceip from event_data_first_48hr_honeyserver where match_eventclass <> 'Suspicious and persistant'  
+		union 
+		select distinct orig_sourceip from event_data_48htolt7d_honeyserver where match_eventclass <> 'Suspicious and persistant'  
+		union 
+		select distinct orig_sourceip from event_data_7dormore_honeyserver where match_eventclass <> 'Suspicious and persistant'  
+	) as all_honeynet
+
+	
+15) Predictions made in the 1st 48 hours – Sensor Net: Returns the number of unique IP that we’re observed again a second time within 48hrs of the 1st observations (Sensor net data only)
+
+	select count (distinct orig_sourceip) from event_data_first_48hr_noro
+
+	
+16) Predictions made in the 1st 48 hours - Honeynet: Returns the number of unique IP that we’re observed again a second time within 48hrs of the 1st observations (Honeynet data only)
+
+	select count (distinct orig_sourceip) from event_data_first_48hr_honeyserver
