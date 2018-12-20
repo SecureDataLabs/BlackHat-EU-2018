@@ -15,7 +15,7 @@ We used a dedicated Amazon Postgres RDS instance with 1TB of storage running on 
 
 ## Restoring data to a Postgres database server
 
-Clone this GitHub project. Locate the file in the _bheu_data_ folder named _bheu-dump-scrubbed_event_data_import-20181130_00.sql.gz_.
+Clone this GitHub project. Locate the file in the _bheu_data_ folder named _bheu-dump-scrubbed_event_data_import-20181220_00.sql.gz_.
 
 On a Linux host use the following command:
 
