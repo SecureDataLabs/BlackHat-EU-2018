@@ -145,3 +145,95 @@ For the research multiple queries were used, some of the unique representations 
 16) Predictions made in the 1st 48 hours - Honeynet: Returns the number of unique IP that we’re observed again a second time within 48hrs of the 1st observations (Honeynet data only)
 
 	select count (distinct orig_sourceip) from event_data_first_48hr_honeyserver
+	
+17) Predictions by Sensor on Honeynet - Counts the number of predictions on the Sensor Network where the second (‘Match’) detection occurred on the Honeynet 
+
+select count(distinct orig_sourceip) from
+(select  orig_sourceip, match_entity from event_data_first_48hr_noro
+    union
+        select orig_sourceip, match_entity from event_data_48htolt7d_no_ro
+    union
+        select orig_sourceip, match_entity from event_data_7dormore_no_ro)
+ as all_sensor
+ where all_sensor.match_entity = 'honeyserver'
+
+•	Sensor data only
+•	We split the data into smaller tables according to prediction window size to make it more manageable, so now we have to UNION them back together again to get a full view.
+
+18) Predictions by Honeynet on Sensors: Counts the number of predictions on the Honeypot Network where the second (‘Match’) detection occurred on the Sensor Network 
+
+select count(distinct orig_sourceip) from
+(select  orig_sourceip, match_entity from event_data_first_48hr_honeyserver_2
+    union
+        select orig_sourceip, match_entity from event_data_48htolt7d_honeyserver_v2
+    union
+        select orig_sourceip, match_entity from event_data_7dormore_honeyserver_v2)
+ as all_sensor
+ where all_sensor.match_entity <> 'honeyserver'
+
+•	Honeynet data only
+•	We split the data into smaller tables according to prediction window size to make it more manageable, so now we have to UNION them back together again to get a full view.
+
+
+19) Percentage of Sensor Predictions that matched on the Honeynet – 1st 48hrs: The percentage of predictions made by the Sensor Network where the second (‘Match’) detection occurred on the Sensor Network
+
+select count(distinct orig_sourceip) * 100.0 /
+(select count (distinct orig_sourceip) from event_data_first_48hr_noro_
+from event_data_first_48hr_noro
+ where match_entity= 'honeyserver'
+
+•	Sensor  data only
+•	This query is restricted to predictions where the prediction window was less than 48hrs
+
+
+20) Percentage of Sensor Predictions that matched on the Honeynet – 1st 48hrs: The percentage of predictions made by the Sensor Network where the second (‘Match’) detection occurred on the Sensor Network
+
+select count(distinct orig_sourceip) * 100.0 /
+(select count (distinct orig_sourceip) from event_data_first_48hr_honeyserver)
+from event_data_first_48hr_honeyserver
+ where match_entity  <>'honeyserver'
+
+•	Sensor  data only
+•	This query is restricted to predictions where the prediction window was less than 48hrs
+
+
+21) Sensor - Total number of Source IP that were successfully predicted: This query will give the total number of unique that were observed again after an initial observation.
+
+This query speaks to the heart of our research
+
+select count(distinct orig_sourceip) from
+(		select  * from event_data_first_48hr_noro
+    union
+        select * from event_data_48htolt7d_no_ro
+    union
+        select * from event_data_7dormore_no_ro
+)
+ as all_sensor
+ where all_sensor.orig_entity <> 'honeyserver' and all_sensor.match_entity <> 'honeyserver' and all_sensor.match_eventclass <> 'External Threat Intelligence' and all_sensor.orig_eventclass <> 'External Threat Intelligence' and all_sensor.orig_entity <> all_sensor.match_entity
+
+•	Sensor Network  data only
+•	We split the data into smaller tables according to prediction window size to make it more manageable, so now we have to UNION them back together again to get a full view.
+•	We are further ignoring predictions involving external ‘Threat Intelligence’ feeds as this would muddy the waters.
+•	Finally, we consider only IP in predictions where the original entity and the entity involved in the prediction differ, as this is the closest representation of a true ‘prediction’
+
+
+22) Sensor - Total number of Source IP that were successfully predicted: This query will give the total number of unique that were observed again after an initial observation.
+
+This query speaks to the heart of our research
+
+select count(distinct orig_sourceip) from
+(		select  * from event_data_first_48hr_honeyserver
+	union
+        select * from event_data_48htolt7d_honeyserver
+    union
+        select * from event_data_7dormore_honeyserver
+)
+ as all_sensor
+where all_sensor.orig_entity = 'honeyserver' and all_sensor.orig_eventclass <> 'Suspicious and persistant' and all_sensor.match_eventclass <> 'Suspicious and persistant' and all_sensor.orig_entity <> match_entity;
+
+•	Honeynet data only
+•	We split the data into smaller tables according to prediction window size to make it more manageable, so now we have to UNION them back together again to get a full view.
+•	We are further ignoring predictions involving external ‘Threat Intelligence’ feeds as this would muddy the waters.
+•	Finally, we consider only IP in predictions where the original entity and the entity involved in the prediction differ, as this is the closest representation of a true ‘prediction’
+
+
